@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #111827;
+  background-color: #ffffff;
+}
+
+.container-custom {
+  max-width: 1570px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+/* 
+@layer base {
+  body {
+    @apply font-sans text-gray-900 bg-white;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1170px] mx-auto px-4;
+  }
+} */
+
+/* @layer base {
+  body {
+    @apply font-sans text-gray-900 bg-white;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1170px] mx-auto px-4;
+  }
+} */
