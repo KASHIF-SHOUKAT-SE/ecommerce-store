@@ -16,27 +16,3 @@ body {
 }
 
 
-/* 
-@layer base {
-  body {
-    @apply font-sans text-gray-900 bg-white;
-  }
-}
-
-@layer components {
-  .container-custom {
-    @apply max-w-[1170px] mx-auto px-4;
-  }
-} */
-
-/* @layer base {
-  body {
-    @apply font-sans text-gray-900 bg-white;
-  }
-}
-
-@layer components {
-  .container-custom {
-    @apply max-w-[1170px] mx-auto px-4;
-  }
-} */

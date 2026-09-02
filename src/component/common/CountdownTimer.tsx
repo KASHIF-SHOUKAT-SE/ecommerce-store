@@ -4,8 +4,29 @@ interface CountdownTimerProps {
   targetHours?: number;
 }
 
+interface TimeBoxProps {
+  value: number;
+  label: string;
+}
+
+interface TimeLeftState {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+const TimeBox = ({ value, label }: TimeBoxProps) => (
+  <div className="flex flex-col items-start">
+    <span className="text-[12px] font-medium text-black mb-1">{label}</span>
+    <span className="text-2xl md:text-3xl font-bold tracking-wider text-black">
+      {String(value ?? 0).padStart(2, '0')}
+    </span>
+  </div>
+);
+
 const CountdownTimer = ({ targetHours = 23 }: CountdownTimerProps) => {
-  const [timeLeft, setTimeLeft] = useState({
+  const [timeLeft, setTimeLeft] = useState<TimeLeftState>({
     days: 3,
     hours: targetHours,
     minutes: 19,
@@ -15,122 +36,56 @@ const CountdownTimer = ({ targetHours = 23 }: CountdownTimerProps) => {
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
-        let { days, hours, minutes, seconds } = prev;
-        seconds--;
-        if (seconds < 0) {
-          seconds = 59;
-          minutes--;
+        let nextSeconds = prev.seconds - 1;
+        let nextMinutes = prev.minutes;
+        let nextHours = prev.hours;
+        let nextDays = prev.days;
+
+        if (nextSeconds < 0) {
+          nextSeconds = 59;
+          nextMinutes -= 1;
         }
-        if (minutes < 0) {
-          minutes = 59;
-          hours--;
+
+        if (nextMinutes < 0) {
+          nextMinutes = 59;
+          nextHours -= 1;
         }
-        if (hours < 0) {
-          hours = 23;
-          days--;
+
+        if (nextHours < 0) {
+          nextHours = 23;
+          nextDays -= 1;
         }
-        if (days < 0) {
-          days = 0;
-          hours = 0;
-          minutes = 0;
-          seconds = 0;
+
+        if (nextDays < 0) {
+          return { days: 0, hours: 0, minutes: 0, seconds: 0 };
         }
-        return { days, hours, minutes, seconds };
+
+        return {
+          days: nextDays,
+          hours: nextHours,
+          minutes: nextMinutes,
+          seconds: nextSeconds,
+        };
       });
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
-  const TimeBox = ({ value, label }: { value: number; label: string }) => (
-    <div className="flex flex-col items-center">
-      <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center text-lg md:text-xl font-bold text-gray-900 shadow-sm">
-        {String(value).padStart(2, '0')}
-      </div>
-      <span className="text-xs text-gray-500 mt-1">{label}</span>
-    </div>
-  );
-
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 md:gap-4">
       <TimeBox value={timeLeft.days} label="Days" />
-      <span className="text-red-500 text-xl font-bold">:</span>
+      <span className="text-[#E07575] text-2xl md:text-3xl font-bold pt-4">:</span>
+
       <TimeBox value={timeLeft.hours} label="Hours" />
-      <span className="text-red-500 text-xl font-bold">:</span>
+      <span className="text-[#E07575] text-2xl md:text-3xl font-bold pt-4">:</span>
+
       <TimeBox value={timeLeft.minutes} label="Minutes" />
-      <span className="text-red-500 text-xl font-bold">:</span>
+      <span className="text-[#E07575] text-2xl md:text-3xl font-bold pt-4">:</span>
+
       <TimeBox value={timeLeft.seconds} label="Seconds" />
     </div>
   );
 };
 
 export default CountdownTimer;
-
-
-// import { useState, useEffect } from 'react';
-
-// interface CountdownTimerProps {
-//   targetHours?: number;
-// }
-
-// const CountdownTimer = ({ targetHours = 23 }: CountdownTimerProps) => {
-//   const [timeLeft, setTimeLeft] = useState({
-//     days: 3,
-//     hours: targetHours,
-//     minutes: 19,
-//     seconds: 56,
-//   });
-
-//   useEffect(() => {
-//     const timer = setInterval(() => {
-//       setTimeLeft((prev) => {
-//         let { days, hours, minutes, seconds } = prev;
-//         seconds--;
-//         if (seconds < 0) {
-//           seconds = 59;
-//           minutes--;
-//         }
-//         if (minutes < 0) {
-//           minutes = 59;
-//           hours--;
-//         }
-//         if (hours < 0) {
-//           hours = 23;
-//           days--;
-//         }
-//         if (days < 0) {
-//           days = 0;
-//           hours = 0;
-//           minutes = 0;
-//           seconds = 0;
-//         }
-//         return { days, hours, minutes, seconds };
-//       });
-//     }, 1000);
-
-//     return () => clearInterval(timer);
-//   }, []);
-
-//   const TimeBox = ({ value, label }: { value: number; label: string }) => (
-//     <div className="flex flex-col items-center">
-//       <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center text-lg md:text-xl font-bold text-gray-900 shadow-sm">
-//         {String(value).padStart(2, '0')}
-//       </div>
-//       <span className="text-xs text-gray-500 mt-1">{label}</span>
-//     </div>
-//   );
-
-//   return (
-//     <div className="flex items-center gap-3">
-//       <TimeBox value={timeLeft.days} label="Days" />
-//       <span className="text-red-500 text-xl font-bold">:</span>
-//       <TimeBox value={timeLeft.hours} label="Hours" />
-//       <span className="text-red-500 text-xl font-bold">:</span>
-//       <TimeBox value={timeLeft.minutes} label="Minutes" />
-//       <span className="text-red-500 text-xl font-bold">:</span>
-//       <TimeBox value={timeLeft.seconds} label="Seconds" />
-//     </div>
-//   );
-// };
-
-// export default CountdownTimer;

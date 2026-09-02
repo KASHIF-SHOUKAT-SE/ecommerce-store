@@ -3,7 +3,7 @@ import { Send } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white pt-20 pb-6 border-t border-gray-900 mt-20">
+    <footer className="w-full bg-black text-white pt-20 pb-6 border-t border-gray-900 mt-20">
       <div className="container-custom">
         {/* Top 5-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
@@ -17,7 +17,6 @@ const Footer = () => {
             <p className="text-gray-300 text-sm font-light">
               Get 10% off your first order
             </p>
-            {/* Input Box with Arrow */}
             <div className="relative mt-2 max-w-[217px]">
               <input
                 type="email"
@@ -110,9 +109,7 @@ const Footer = () => {
               Save $3 with App New User Only
             </p>
             
-            {/* QR Code and App Store Badges */}
             <div className="flex items-center gap-2 mt-1">
-              {/* QR Code */}
               <div className="w-20 h-20 bg-white p-1 rounded-sm shrink-0 flex items-center justify-center">
                 <img
                   src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ExclusiveEcommerceApp"
@@ -121,9 +118,7 @@ const Footer = () => {
                 />
               </div>
 
-              {/* App Buttons */}
               <div className="flex flex-col gap-2">
-                {/* Google Play */}
                 <a
                   href="https://play.google.com"
                   target="_blank"
@@ -139,7 +134,6 @@ const Footer = () => {
                   </div>
                 </a>
 
-                {/* App Store */}
                 <a
                   href="https://apple.com"
                   target="_blank"
@@ -157,7 +151,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Media Icons */}
+            {/* Social Media SVGs */}
             <div className="flex items-center gap-6 mt-4 text-white">
               <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-red-500 transition-colors" aria-label="Facebook">
                 <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -196,87 +190,3 @@ const Footer = () => {
 };
 
 export default Footer;
-// import { Link } from 'react-router-dom';
-// import { Send } from 'lucide-react';
-
-// const Footer = () => {
-//   return (
-//     <footer className="bg-black text-white pt-16 pb-8">
-//       <div className="container-custom">
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-//           {/* Exclusive */}
-//           <div className="lg:col-span-1">
-//             <Link to="/" className="text-xl font-bold mb-4 block hover:text-red-400 transition-colors">
-//               Exclusive
-//             </Link>
-//             <p className="text-gray-400 mb-4">Subscribe</p>
-//             <p className="text-gray-400 text-sm mb-4">Get 10% off your first order</p>
-//             <div className="flex">
-//               <input
-//                 type="email"
-//                 placeholder="Enter your email"
-//                 className="bg-transparent border border-gray-600 rounded-l px-4 py-2 text-sm flex-1 outline-none focus:border-white"
-//               />
-//               <button className="bg-transparent border border-l-0 border-gray-600 rounded-r px-3 hover:border-white transition-colors">
-//                 <Send size={18} />
-//               </button>
-//             </div>
-//           </div>
-
-//           {/* Support */}
-//           <div>
-//             <h4 className="font-medium mb-4">Support</h4>
-//             <ul className="space-y-2 text-gray-400 text-sm">
-//               <li>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</li>
-//               <li>exclusive@gmail.com</li>
-//               <li>+88015-88888-9999</li>
-//             </ul>
-//           </div>
-
-//           {/* Account */}
-//           <div>
-//             <h4 className="font-medium mb-4">Account</h4>
-//             <ul className="space-y-2 text-gray-400 text-sm">
-//               <li><Link to="/account" className="hover:text-white transition-colors">My Account</Link></li>
-//               <li><Link to="/signup" className="hover:text-white transition-colors">Login / Register</Link></li>
-//               <li><Link to="/cart" className="hover:text-white transition-colors">Cart</Link></li>
-//               <li><Link to="/wishlist" className="hover:text-white transition-colors">Wishlist</Link></li>
-//               <li><Link to="/" className="hover:text-white transition-colors">Shop</Link></li>
-//             </ul>
-//           </div>
-
-//           {/* Quick Link */}
-//           <div>
-//             <h4 className="font-medium mb-4">Quick Link</h4>
-//             <ul className="space-y-2 text-gray-400 text-sm">
-//               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-//               <li><Link to="/terms" className="hover:text-white transition-colors">Terms Of Use</Link></li>
-//               <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-//               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-//             </ul>
-//           </div>
-
-//           {/* Download App */}
-//           <div>
-//             <h4 className="font-medium mb-4">Download App</h4>
-//             <p className="text-gray-400 text-sm mb-4">Save $3 with App New User Only</p>
-//             <div className="flex gap-2">
-//               <div className="w-24 h-8 bg-gray-700 rounded flex items-center justify-center text-xs cursor-pointer hover:bg-gray-600 transition-colors">
-//                 Google Play
-//               </div>
-//               <div className="w-24 h-8 bg-gray-700 rounded flex items-center justify-center text-xs cursor-pointer hover:bg-gray-600 transition-colors">
-//                 App Store
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-//           <p>© Copyright Rimel 2022. All right reserved</p>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
