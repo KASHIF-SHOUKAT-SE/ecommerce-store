@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 
+import heroImage from '../../assets/hero.png';
+
 const categoriesList = [
   { name: "Woman's Fashion", hasSubmenu: true },
   { name: "Men's Fashion", hasSubmenu: true },
@@ -29,7 +31,7 @@ const slides = [
     brandName: 'Samsung Galaxy Series',
     title: 'Up to 20% off Voucher',
     link: '/shop',
-    image: 'https://images.samsung.com/is/image/samsung/p6pim/pk/2307/gallery/pk-galaxy-z-flip5-f731-sm-f731blgcpkd-537572802?$1300_1038_PNG$',
+    image: heroImage,
   },
 ];
 
