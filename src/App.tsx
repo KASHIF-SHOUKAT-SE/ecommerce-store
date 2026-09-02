@@ -1,12 +1,6 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import MainLayout from './component/layout/MainLayout';
-import Home from './pages/Home';
-import Wishlist from './pages/Wishlist';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import ProductDetails from './pages/ProductDetails'; // ✅ Import ProductDetails
-import NotFound from './pages/NotFound';
+mainimport Routing from './routing/Routing';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -20,16 +14,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="product/:id" element={<ProductDetails />} /> {/* ✅ Dynamic Route */}
-          <Route path="wishlist" element={<Wishlist />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+      <Routing />
     </Router>
   );
 }

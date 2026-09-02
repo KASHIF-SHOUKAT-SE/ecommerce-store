@@ -75,14 +75,14 @@ const Header = () => {
               <button className="hover:text-red-500 transition-colors">
                 <Heart size={22} />
               </button>
-              <button className="hover:text-red-500 transition-colors relative">
+              <Link to="/cart" className="hover:text-red-500 transition-colors relative block">
                 <ShoppingCart size={22} />
                 {totalItems > 0 && (
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                     {totalItems}
                   </span>
                 )}
-              </button>
+              </Link>
               <button className="hover:text-red-500 transition-colors">
                 <User size={22} />
               </button>
