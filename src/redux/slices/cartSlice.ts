@@ -35,10 +35,19 @@ const cartSlice = createSlice({
         state.items = state.items.filter(item => item.id !== action.payload);
       }
     },
+    updateQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
+      const item = state.items.find(item => item.id === action.payload.id);
+      if (item && action.payload.quantity >= 1) {
+        const quantityDiff = action.payload.quantity - item.quantity;
+        item.quantity = action.payload.quantity;
+        state.totalQuantity += quantityDiff;
+        state.totalAmount += quantityDiff * item.price;
+      }
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
 
 // import { createSlice, PayloadAction } from '@reduxjs/toolkit';
