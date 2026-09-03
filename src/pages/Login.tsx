@@ -36,8 +36,8 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white flex items-center justify-center">
-      <div className="w-full max-w-[980px] min-h-[620px] flex bg-white">
+    <div className="w-full bg-white flex items-center justify-center py-10 lg:py-20">
+      <div className="w-full max-w-[980px] min-h-[520px] flex bg-white">
 
         {/* ================= LEFT SIDE ================= */}
         <div className="w-[57%] flex items-center justify-center px-6 py-8">

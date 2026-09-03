@@ -18,7 +18,7 @@ export const fetchProducts = createAsyncThunk(
   'product/fetchProducts',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/products?limit=100');
+      const response = await fetch('/mockProducts.json');
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Send } from 'lucide-react';
+import { Send, QrCode } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -111,11 +111,7 @@ const Footer = () => {
             
             <div className="flex items-center gap-2 mt-1">
               <div className="w-20 h-20 bg-white p-1 rounded-sm shrink-0 flex items-center justify-center">
-                <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ExclusiveEcommerceApp"
-                  alt="App Download QR Code"
-                  className="w-full h-full object-contain"
-                />
+                <QrCode size={64} className="text-black" />
               </div>
 
               <div className="flex flex-col gap-2">

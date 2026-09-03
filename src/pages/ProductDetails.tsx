@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Star, Truck, RotateCcw, Heart, Minus, Plus } from 'lucide-react';
-import { useAppSelector } from '../hooks/useRedux';
+import { useAppSelector, useAppDispatch } from '../hooks/useRedux';
+import { addToCart } from '../redux/slices/cartSlice';
 import ProductCard from '../component/common/ProductCard';
 import SectionTitle from '../component/common/SectionTitle';
 import type { Product } from '../types';
@@ -11,6 +12,8 @@ const sizes = ['XS', 'S', 'M', 'L', 'XL'];
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { products } = useAppSelector((state) => state.product);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedImage, setSelectedImage] = useState<string>('');
@@ -201,6 +204,12 @@ const ProductDetails = () => {
 
               <button
                 type="button"
+                onClick={() => {
+                  if (product) {
+                    dispatch(addToCart(product));
+                    navigate('/checkout');
+                  }
+                }}
                 className="flex-1 h-11 bg-[#DB4444] text-white font-medium rounded text-sm hover:bg-[#c93939] transition-colors flex items-center justify-center"
               >
                 Buy Now
