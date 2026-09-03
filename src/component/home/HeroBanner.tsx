@@ -23,7 +23,7 @@ const slides = [
     brandName: 'iPhone 14 Series',
     title: 'Up to 10% off Voucher',
     link: '/shop',
-    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-model-unselect-gallery-2-202209?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1660753619986',
+    image: heroImage,
   },
   {
     id: 2,

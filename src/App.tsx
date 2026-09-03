@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-mainimport Routing from './routing/Routing';
+import Routing from './routing/Routing';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();

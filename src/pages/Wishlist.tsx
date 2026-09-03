@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Trash2, Eye, ShoppingCart, Star } from 'lucide-react';
 import { useAppSelector, useAppDispatch } from '../hooks/useRedux';
 import { removeFromWishlist } from '../redux/slices/wishlistSlice';
+import { addToCart } from '../redux/slices/cartSlice';
 
 const Wishlist = () => {
   const dispatch = useAppDispatch();
@@ -76,10 +77,10 @@ const Wishlist = () => {
                     className="max-h-[160px] max-w-[80%] object-contain mix-blend-multiply"
                   />
 
-                  {/* Add To Cart - No Trigger */}
+                  {/* Add To Cart */}
                   <button
                     type="button"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={() => dispatch(addToCart(product))}
                     className="absolute bottom-0 left-0 right-0 bg-black text-white py-2.5 text-xs font-medium flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
                   >
                     <ShoppingCart size={16} />
@@ -158,10 +159,10 @@ const Wishlist = () => {
                   className="max-h-[160px] max-w-[80%] object-contain mix-blend-multiply"
                 />
 
-                {/* Add To Cart - No Trigger */}
+                {/* Add To Cart */}
                 <button
                   type="button"
-                  onClick={(e) => e.preventDefault()}
+                  onClick={() => dispatch(addToCart(product))}
                   className="absolute bottom-0 left-0 right-0 bg-black text-white py-2.5 text-xs font-medium flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
                 >
                   <ShoppingCart size={16} />

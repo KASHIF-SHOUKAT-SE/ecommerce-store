@@ -3,6 +3,7 @@ import { Heart, Eye, ShoppingCart, Star } from 'lucide-react'; // ✅ Star icon 
 import type { Product } from '../../types';
 import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 import { addToWishlist, removeFromWishlist } from '../../redux/slices/wishlistSlice';
+import { addToCart } from '../../redux/slices/cartSlice';
 
 interface ProductCardProps {
   product: Product;
@@ -78,6 +79,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
+            dispatch(addToCart(product));
           }}
           className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2"
         >
